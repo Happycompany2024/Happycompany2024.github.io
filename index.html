@@ -1,0 +1,482 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>袁氏 招笑集团官网</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D92121', // 主色调：红色
+                        secondary: '#F2B705', // 辅助色：黄色
+                        tertiary: '#04BFAD', // 第三色：青色
+                        dark: '#0D0D0D', // 深色
+                        light: '#F2F2F2', // 浅色
+                        'dark-blue': '#162D50', // 深蓝 - 用于深色背景
+                        'warm-gray': '#F5F0E8', // 暖灰 - 用于浅色背景
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['"Playfair Display"', 'serif'],
+                    },
+                    backgroundImage: {
+                        'noise': "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ii8+PC9zdmc+')",
+                    }
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .text-shadow-lg {
+                text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            .animate-pulse-slow {
+                animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+            .mask-gradient {
+                mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+</head>
+<body class="font-inter bg-light text-dark overflow-x-hidden">
+    <!-- 导航栏 -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                <span class="text-sm text-dark font-normal"></span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-dark hover:text-primary transition-colors font-medium">首页</a>
+                <a href="#happy-company" class="text-dark hover:text-primary transition-colors font-medium">招笑集团</a>
+                <a href="#ni-company" class="text-dark hover:text-primary transition-colors font-medium">袁氏影业</a>
+                <a href="#sixteens" class="text-dark hover:text-primary transition-colors font-medium">十六少年团</a>
+                <a href="#oz-group" class="text-dark hover:text-primary transition-colors font-medium">奥兹集团</a>
+                <a href="#planning" class="text-dark hover:text-primary transition-colors font-medium">正在计划</a>
+                <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium">联系我们</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-dark hover:text-primary" id="menu-toggle">
+                <i class="fa fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full transform -translate-y-full opacity-0 transition-all duration-300 pointer-events-none" id="mobile-menu">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-dark hover:text-primary transition-colors py-2 font-medium">首页</a>
+                <a href="#happy-company" class="text-dark hover:text-primary transition-colors py-2 font-medium">招笑集团</a>
+                <a href="#ni-company" class="text-dark hover:text-primary transition-colors py-2 font-medium">袁氏影业</a>
+                <a href="#sixteens" class="text-dark hover:text-primary transition-colors py-2 font-medium">十六少年团</a>
+                <a href="#oz-group" class="text-dark hover:text-primary transition-colors py-2 font-medium">奥兹集团</a>
+                <a href="#planning" class="text-dark hover:text-primary transition-colors py-2 font-medium">正在计划</a>
+                <a href="#contact" class="text-dark hover:text-primary transition-colors py-2 font-medium">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 首页/大logo -->
+        <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-warm-gray">
+            <div class="absolute inset-0 bg-noise opacity-10"></div>
+            
+            <div class="container mx-auto px-4 text-center z-10">
+                <div class="animate-float">
+                    <div class="mb-8">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5f867bbc833a438d900d7418c63d425a~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1752729477&amp;x-signature=3TwykPx7LpVE2ECsqrjQU3X6EJA%3D" alt="袁氏招笑集团主标志" class="h-40 w-auto mx-auto">
+                    </div>
+                    <h1 class="text-[clamp(3rem,15vw,8rem)] font-bold text-primary leading-none mb-4 text-shadow-lg">
+                        袁<span class="text-primary">氏</span>
+                    </h1>
+                    <h2 class="text-[clamp(2rem,8vw,5rem)] font-bold text-dark mb-8 text-shadow">
+                        招笑集团
+                    </h2>
+                    <div class="text-[clamp(1rem,3vw,1.5rem)] text-dark/80 max-w-4xl mx-auto mb-12 space-y-4">
+                        <p>二十一世纪袁氏没有兄弟影业不是公司</p>
+                        <p>鹿鸣演艺组</p>
+                        <p>奥兹集团官网</p>
+                    </div>
+                </div>
+                
+                <div class="mt-16 animate-pulse-slow">
+                    <a href="#happy-company" class="inline-block px-8 py-4 bg-primary text-white rounded-full font-bold text-lg hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg">
+                        探索集团
+                    </a>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#happy-company" class="text-primary/70 hover:text-primary">
+                    <i class="fa fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 招笑集团 -->
+        <section id="happy-company" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-dark-blue text-white">
+            <div class="absolute inset-0 bg-noise opacity-10"></div>
+            
+            <div class="container mx-auto px-4 text-center z-10">
+                <div class="mb-8">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1a2fe1b9e7d54dcf941a648722f1c0c1~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1752729505&amp;x-signature=2WwqR8vQMdySRNLviuXIR4RWYok%3D" alt="招笑集团标志" class="h-32 w-auto mx-auto">
+                </div>
+                <h2 class="text-[clamp(2.5rem,8vw,5rem)] font-bold mb-8 text-shadow">
+                    招笑集团<br>
+                    <span class="text-secondary text-[clamp(1.5rem,5vw,3rem)]">Happy Company</span>
+                </h2>
+                <p class="text-[clamp(1.2rem,3vw,1.8rem)] max-w-3xl mx-auto mb-12">
+                    这是十六班的一个非官方活动组织团队。<br>
+                    <span class="text-secondary">Since 2025</span>
+                </p>
+                
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-smile-o text-4xl text-secondary mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">欢乐无限</h3>
+                        <p class="text-white/80">我们致力于为大家带来欢乐和笑声，创造美好回忆。</p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-users text-4xl text-secondary mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">团队协作</h3>
+                        <p class="text-white/80">通过紧密的团队合作，我们完成了一个又一个精彩的活动。</p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-star text-4xl text-secondary mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">创意无限</h3>
+                        <p class="text-white/80">不断创新，突破传统，打造独特的活动体验。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#ni-company" class="text-white/70 hover:text-white">
+                    <i class="fa fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 袁氏影业 -->
+        <section id="ni-company" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-warm-gray">
+            <div class="absolute inset-0 bg-noise opacity-10"></div>
+            
+            <div class="container mx-auto px-4 text-center z-10">
+                <div class="mb-8">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/abc4ca8be83644cf836a76289dbdebeb~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1752729519&amp;x-signature=APni0hvj2tSlSi%2F%2BvfhjitQDAJ8%3D" alt="袁氏影业标志" class="h-32 w-auto mx-auto">
+                </div>
+                <h2 class="text-[clamp(2rem,6vw,4rem)] font-bold text-dark mb-8 max-w-5xl mx-auto">
+                    二十一世纪袁氏没有兄弟影业不是公司<br>
+                    <span class="text-[clamp(1.2rem,3vw,2rem)] whitespace-nowrap">21st Century Ni's No Brothers Film Is Not A Company</span>
+                </h2>
+                <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-dark/80 max-w-3xl mx-auto mb-8">
+                    我们是一家致力于用最低成本拍最好的电影的团队<br>
+                    <span class="text-primary font-bold">宗旨：十块也能拍大片！</span>
+                </p>
+                <p class="text-[clamp(1rem,2vw,1.5rem)] text-primary mb-12">
+                    Since 2023
+                </p>
+                
+                <div class="mt-12">
+                    <!-- 修复后的链接 -->
+                    <a href="https://b23.tv/GlF2WrD" target="_blank" class="inline-block px-8 py-4 bg-primary text-white rounded-full font-bold text-lg hover:bg-primary/90 transition-all transform hover:scale-105 shadow-lg">查看作品</a>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#sixteens" class="text-primary/70 hover:text-primary">
+                    <i class="fa fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 十六少年团 -->
+        <section id="sixteens" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-dark-blue text-white">
+            <div class="absolute inset-0 bg-noise opacity-10"></div>
+            
+            <div class="container mx-auto px-4 text-center z-10">
+                <div class="mb-8">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/11fcaf1eb76f4694abdb84d703f5be07~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1752729894&amp;x-signature=7VoU%2FYC9ym1D%2F8glFoQbpDt1oR0%3D" alt="十六少年团标志" class="h-32 w-auto mx-auto">
+                </div>
+                <h2 class="text-[clamp(2.5rem,8vw,5rem)] font-bold mb-8 text-shadow">
+                    十六少年团<br>
+                    <span class="text-secondary text-[clamp(1.5rem,5vw,3rem)]">SIXTEENS</span>
+                </h2>
+                <p class="text-[clamp(1.2rem,3vw,1.8rem)] max-w-3xl mx-auto mb-12">
+                    最新项目：<br>
+                    <span class="text-secondary">"《明天会更好》、《莫愁乡》、《全世界我最美》"</span><br>
+                    正在录制中
+                </p>
+                
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300 group">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://picsum.photos/400/300" alt="《明天会更好》海报" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">《明天会更好》</h3>
+                            <p class="text-white/80"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300 group">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://picsum.photos/400/300" alt="《莫愁乡》海报" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">《莫愁乡》</h3>
+                            <p class="text-white/80"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300 group">
+                        <div class="h-64 overflow-hidden">
+                            <img src="https://picsum.photos/400/300" alt="《全世界我最美》海报" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">《全世界我最美》</h3>
+                            <p class="text-white/80"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#oz-group" class="text-white/70 hover:text-white">
+                    <i class="fa fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 奥兹集团 -->
+        <section id="oz-group" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-warm-gray">
+            <div class="absolute inset-0 bg-noise opacity-10"></div>
+            
+            <div class="container mx-auto px-4 text-center z-10">
+                <div class="mb-8">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/c41dc85b83b4411fa8278ec3e11831d1~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1752729925&amp;x-signature=jX3V4l9bsLsLVTZgGeJ0gIe1YF8%3D" alt="奥兹集团标志" class="h-32 w-auto mx-auto">
+                </div>
+                <h2 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-dark mb-8 text-shadow">
+                    奥兹集团<br>
+                    <span class="text-tertiary text-[clamp(1.5rem,5vw,3rem)]">Oz Group</span>
+                </h2>
+                <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-dark/80 max-w-3xl mx-auto mb-8">
+                    Since 2024<br>
+                    虽然早就不制造魔杖了，但是还是加个页面
+                </p>
+                
+                <div class="mt-12">
+                    <a href="https://www.ccw.site/player/67374db7bec95173eca4dffa?shortUrl=https%3A%2F%2Fccw.site%2Fs%2F1bxbK" target="_blank" class="inline-block px-8 py-4 bg-tertiary text-white rounded-full font-bold text-lg hover:bg-tertiary/90 transition-all transform hover:scale-105 shadow-lg">
+                        了解更多
+                    </a>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#planning" class="text-tertiary/70 hover:text-tertiary">
+                    <i class="fa fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 正在计划 -->
+        <section id="planning" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-dark-blue text-white">
+            <div class="absolute inset-0 bg-noise opacity-10"></div>
+            
+            <div class="container mx-auto px-4 text-center z-10">
+                <div class="mb-8">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/2abb8cb5feab4a73bdfe02d89f06a188~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1752729960&amp;x-signature=JkMXklGtM2G6MZR1htZiln8JONg%3D" alt="正在计划标志" class="h-32 w-auto mx-auto">
+                </div>
+                <h2 class="text-[clamp(2.5rem,8vw,5rem)] font-bold mb-8 text-shadow">
+                    正在计划
+                </h2>
+                <p class="text-[clamp(1.2rem,3vw,1.8rem)] max-w-3xl mx-auto mb-12">
+                    白板项目、自制音乐与电影等
+                </p>
+                
+                <div class="mt-16 max-w-3xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 transform hover:-translate-y-2 transition-all duration-300">
+                        <h3 class="text-2xl font-bold mb-4">未来计划</h3>
+                        <ul class="space-y-4 text-left">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>大型线上互动活动 - 让粉丝更近距离参与我们的创作过程</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>原创音乐专辑 - 十六少年团的首张音乐作品</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>系列微电影 - 打造属于我们自己的影视宇宙</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <span>粉丝社区建设 - 建立更紧密的粉丝互动平台</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#contact" class="text-white/70 hover:text-white">
+                    <i class="fa fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 联系我们 -->
+        <section id="contact" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-warm-gray">
+            <div class="absolute inset-0 bg-noise opacity-10"></div>
+            
+            <div class="container mx-auto px-4 text-center z-10">
+                <div class="mb-8">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/72d2b9d776dc49159fc3bf0d9a311ca7~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1752729973&amp;x-signature=cwsklrisDRJchjSuicixWQaPWBE%3D" alt="联系我们标志" class="h-32 w-auto mx-auto">
+                </div>
+                <h2 class="text-[clamp(2.5rem,8vw,5rem)] font-bold text-dark mb-8 text-shadow">
+                    联系我们
+                </h2>
+                
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-youtube-play text-5xl text-red-600 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4">哔哩哔哩</h3>
+                        <p class="text-dark/80 mb-6">关注我们的哔哩哔哩频道，获取最新动态和精彩内容</p>
+                        <a href="#" class="inline-block px-6 py-3 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition-colors">UP主峻小峻的杂货铺</a>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-wechat text-5xl text-green-500 mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4">微信视频号</h3>
+                        <p class="text-dark/80 mb-6">关注我们的微信视频号，获取最新短视频内容</p>
+                        <a href="#" class="inline-block px-6 py-3 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition-colors">二十一世纪袁氏没有兄弟影业</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">© 2025 招笑集团. 保留所有权利.最终解释权归盐城市鹿鸣路初级中学2024级（16）班袁峻熙、张清玥、朱枝桐所有.</p>
+            <p class="text-white/60 text-sm">本网站为演示用。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // 移动端菜单
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('opacity-0')) {
+                mobileMenu.classList.remove('opacity-0', '-translate-y-full', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                menuToggle.innerHTML = '<i class="fa fa-times text-2xl"></i>';
+            } else {
+                mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                menuToggle.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 如果是移动端菜单，点击后关闭
+                if (!mobileMenu.classList.contains('opacity-0')) {
+                    mobileMenu.classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+                    mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    menuToggle.innerHTML = '<i class="fa fa-bars text-2xl"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 监听滚动位置，高亮当前导航项
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-primary');
+                }
+            });
+        });
+    </script>
+
+
+    </body></html>
